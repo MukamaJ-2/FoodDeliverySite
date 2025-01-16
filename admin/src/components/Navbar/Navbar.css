@@ -1,0 +1,32 @@
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    gap: 65rem;
+    align-items: center;
+    padding: 5px 4%;
+}
+
+.navbar hr{
+    width: max(100vw,5px);
+}
+
+.navbar .logo{
+    width: max(10%,80px);
+}
+
+.navbar .profile{
+    width: 40px;
+}
+
+@media (max-width:770px) {
+    .navbar{
+        gap: 40rem;
+    }
+}
+
+@media (max-width:450px) {
+    .navbar{
+        gap: 20rem;
+    }
+}
