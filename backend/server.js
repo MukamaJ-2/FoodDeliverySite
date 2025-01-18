@@ -4,9 +4,10 @@ import { connectDB } from "./config/db.js"
 
 
 
+
 // app config
 const app = express()
-const port = 4000
+const port = 8080
 
 
 
