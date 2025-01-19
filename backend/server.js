@@ -1,18 +1,28 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const corsOptions = {
-    origin: ["http://localhost:5173"],
-};
-
-app .use(cors(corsOptions));
+import express from "express";
+import cors from "cors";
+import { connectDB } from "./config/db.js";
+import foodRouter from "./routes/foodRoute.js";
 
 
+//app config
+const app = express()
+const port = 4001
 
-app.get("/api",(req, res) =>{
-    res.json({fruits: ["apple","banana"]});
-});
+// middleware
+app.use(express.json())
+app.use(cors())
 
-app.listen(8080, () =>{
-    console.log("Server started on port 8080");
-});
+// db connection
+connectDB();
+
+
+//api endpoints
+app.use("/api/food",foodRouter)
+
+app.get("/",(req,res)=>{
+    res.send("API Working")
+})
+
+app.listen(port,()=>{
+    console.log(`Sever started on http://localhost:${port}`)
+})
