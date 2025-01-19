@@ -11,7 +11,7 @@ function App() {
 
   const [showLogin, setShowLogin] = useState(false);
 
-const fetchAPI= async () =>{
+/*const fetchAPI= async () =>{
   const response = await axios.get("http://localhost:8080/api");
   console.log(response.data.fruits);
 };
@@ -19,7 +19,7 @@ const fetchAPI= async () =>{
 
 useEffect(() =>{
   fetchAPI();
-}, []);
+}, []);*/
 
   return (
     <>
