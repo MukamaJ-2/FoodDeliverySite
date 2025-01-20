@@ -11,15 +11,6 @@ function App() {
 
   const [showLogin, setShowLogin] = useState(false);
 
-/*const fetchAPI= async () =>{
-  const response = await axios.get("http://localhost:8080/api");
-  console.log(response.data.fruits);
-};
-
-
-useEffect(() =>{
-  fetchAPI();
-}, []);*/
 
   return (
     <>
