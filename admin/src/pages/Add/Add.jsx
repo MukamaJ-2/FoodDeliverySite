@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Add.css'
 import { assets } from '../../assets/assets'
 import axios from "axios"
+import { toast, ToastContainer } from 'react-toastify';
 
 function Add() {
 
@@ -37,9 +38,11 @@ function Add() {
                 category:"Pasta"
             })
             SetImage(false)
+            toast.success(response.data.message)
+
         }
         else{
-
+            toast.error(response.data.message)
         }
     }
 
@@ -87,3 +90,9 @@ function Add() {
 }
 
 export default Add
+
+
+
+
+
+ 
