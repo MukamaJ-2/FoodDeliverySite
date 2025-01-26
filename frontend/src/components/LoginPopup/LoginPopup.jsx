@@ -1,9 +1,23 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import "./LoginPopup.css"
 import { assets } from '../../assets/assets'
-function LoginPopup({setShowLogin}) {
 
-    const [currentState, setCurrentState] = useState("Sign Up")
+const LoginPopup = ({setShowLogin}) =>{
+
+    const [currentState, setCurrentState] = useState("Login")
+    const [data,setData] = useState({
+      name:"",
+      email:"",
+      password:""
+    })
+
+    const onChangeHandler = (event) =>{
+      const name = event.target.name;
+      const value = event.target.value;
+      setData(data=>({...data,[name]:value}))
+    }
+
+   
 
   return (
     <div className='login-popup'>
@@ -13,10 +27,10 @@ function LoginPopup({setShowLogin}) {
                 <img onClick={()=>setShowLogin(false)} src={assets.cross_icon} alt="" />
             </div>
             <div className="login-popup-input">
-              {currentState==="Login"?<></>:<input type="text"placeholder='Name' required/>}
+              {currentState==="Login"?<></>:<input name='name' onChange={onChangeHandler} value={data.name} type="text"placeholder='Name' required/>}
 
-                <input type="email"placeholder='Email' required/>
-                <input type="password"placeholder='Password' required/>  
+                <input name='email' onChange={onChangeHandler} value={data.email} type="email"placeholder='Email' required/>
+                <input name='password' onChange={onChangeHandler} value={data.password} type="password"placeholder='Password' required/>  
             </div>
             <button>{currentState==="Sign Up" ? "Create Account":"Login"}</button>
             <div className="login-popup-condition">
