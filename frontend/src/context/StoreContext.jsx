@@ -10,7 +10,8 @@ const StoreContextProvider = (props) => {
 
 
     const [cartItems, setCartItems] = useState({}); //Creating the cart object to store the item id with a value
-    const url = "http://localhost:4001"
+    const url = "http://localhost:4001";
+    const [token,setToken] = useState("");
 
     //Adding to Cart functionality
     const addToCart = (itemId) =>{
@@ -56,7 +57,9 @@ const StoreContextProvider = (props) => {
         addToCart,
         removeFromCart,
         getTotalCartAmount,
-        url
+        url,
+        token,
+        setToken
     }
 
     return (
@@ -66,4 +69,4 @@ const StoreContextProvider = (props) => {
     )
 }
 
-export  default StoreContextProvider 
+export  default StoreContextProvider;
