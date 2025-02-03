@@ -2,7 +2,7 @@
 
 {/*Using context to allow multiple compnents to access values without using props*/}
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/assets";
+//import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext(null); //Creating the StoreContext to store all values to be used
 
@@ -12,6 +12,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({}); //Creating the cart object to store the item id with a value
     const url = "http://localhost:4001";
     const [token,setToken] = useState("");
+    const [food_list,setFoodList] = useState([])
 
     //Adding to Cart functionality
     const addToCart = (itemId) =>{
@@ -46,7 +47,12 @@ const StoreContextProvider = (props) => {
         }
         return totalAmount;
     }
-
+ 
+    useEffect(()=>{
+        if (localStorage.getItem("token")) {
+            setToken(localStorage.getItem("token"));  
+        }
+    },[])
 
     //The context values used in different components
     const contextValue = {
